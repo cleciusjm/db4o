@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
-            <version>4.2.0</version>
+            <version>4.3.1</version>
             <scope>provided</scope>
         </dependency>
         <!-- the db4o-full needs an ant installation in the osgi container-->
@@ -120,16 +120,12 @@
                         <configuration>
                             <target>
                                 <!-- We enhance with an additional Ant-run step. You can put this also in an extra file -->
-                                <typedef resource="instrumentation-def.properties"
-                                         classpathref="maven.compile.classpath"/>
+                                <typedef resource="instrumentation-def.properties" classpathref="maven.compile.classpath"/>
 
                                 <!-- We filter by our annotation -->
-                                <typedef name="annotation-filter"
-                                         classname="com.db4odoc.tp.enhancement.AnnotationFilter"
-                                         classpathref="maven.compile.classpath"/>
+                                <typedef name="annotation-filter" classname="com.db4odoc.tp.enhancement.AnnotationFilter" classpathref="maven.compile.classpath"/>
 
-                                <db4o-instrument classTargetDir="target/classes"
-                                          verbose="true">
+                                <db4o-instrument classTargetDir="target/classes" verbose="true">
                                     <classpath refid="maven.compile.classpath"/>
                                     <sources dir="target/classes">
                                         <include name="**/*.class"/>
