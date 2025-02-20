@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.1.0.Final</version>
+            <version>4.3.2.Final</version>
         </dependency>
         <!-- for the osgi examples -->
         <dependency>
@@ -120,16 +120,12 @@
                         <configuration>
                             <target>
                                 <!-- We enhance with an additional Ant-run step. You can put this also in an extra file -->
-                                <typedef resource="instrumentation-def.properties"
-                                         classpathref="maven.compile.classpath"/>
+                                <typedef resource="instrumentation-def.properties" classpathref="maven.compile.classpath"/>
 
                                 <!-- We filter by our annotation -->
-                                <typedef name="annotation-filter"
-                                         classname="com.db4odoc.tp.enhancement.AnnotationFilter"
-                                         classpathref="maven.compile.classpath"/>
+                                <typedef name="annotation-filter" classname="com.db4odoc.tp.enhancement.AnnotationFilter" classpathref="maven.compile.classpath"/>
 
-                                <db4o-instrument classTargetDir="target/classes"
-                                          verbose="true">
+                                <db4o-instrument classTargetDir="target/classes" verbose="true">
                                     <classpath refid="maven.compile.classpath"/>
                                     <sources dir="target/classes">
                                         <include name="**/*.class"/>
